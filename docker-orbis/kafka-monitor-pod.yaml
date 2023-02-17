@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kafka-monitor
+  labels:
+    type: kafka-tooling
+spec:
+  containers:
+    - image: orbis-u/kafka-monitor:0.3
+      name: kafka-monitor
+      ports:
+        - name: jolokia
+          containerPort: 8778
+          protocol: TCP
+        - name: gui
+          containerPort: 80
+          protocol: TCP
